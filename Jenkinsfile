@@ -32,6 +32,7 @@ pipeline {
                 mvn test
                 """
                 }
+	}
 
 
         stage('Build') {
@@ -68,5 +69,5 @@ pipeline {
 	        }
 	    }
 
-}
+
 }
