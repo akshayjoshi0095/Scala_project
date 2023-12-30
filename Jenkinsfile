@@ -12,6 +12,7 @@ pipeline {
     parameters{
         string(name:'Local_repo', defaultValue:'/Users/akshay.joshi/.jenkins/workspace/GIT_PROJECT_JOB_WITH_PLUGIN - 2/', description:"This is the local repo.")
         string(name:'AWS_repo', defaultValue:'s3://akshay-spark-learning/Jenkins_new/', description:"This is the local repo.")
+string(name:'Email', defaultValue:'akshayjoshi0095@gmail.com', description:"Email for sending status")
     }
 
     stages {
@@ -61,7 +62,7 @@ pipeline {
 	          emailext (
 		        subject : "Pipeline ${currentBuild.fullDisplayName} Status : ${currentBuild.result}",
                 body : "job name and build no. : ${currentBuild.fullDisplayName} <br> URL : ${env.BUILD_URL} <br> Result : ${currentBuild.result}",
-        		to : "akshayjoshi0095@gmail.com",
+        		to : "${Email}",
         		from : "jenkins@example.com",
         		replyTo : "jenkins@example.com",
         		mimeType : "text/html"
